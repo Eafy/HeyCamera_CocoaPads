@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HeyCamera"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Hey Camera SDK for iOS at CocoaPods."
   s.description  = "Hey Camera SDK for iOS at CocoaPods."
 
