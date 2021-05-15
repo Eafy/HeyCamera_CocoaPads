@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Hey Camera SDK for iOS at CocoaPods."
   s.description  = "Hey Camera SDK for iOS at CocoaPods."
 
-  s.homepage     = "https://gitee.com/eafy/HeyCamera_CocoaPads"
+  s.homepage     = "https://github.com/Eafy/HeyCamera_CocoaPads"
   s.license      = { :type => "Apache License 2.0" }
   s.author       = { "Eafy" => "lizhijian_21@163.com" }
   s.platform     = :ios, "9.0"
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.dependency 'CocoaAsyncSocket'
   s.dependency 'ZJBaseUtils'
   
-  s.source       = { :git => "https://gitee.com/eafy/HeyCamera_CocoaPads.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/Eafy/HeyCamera_CocoaPads.git", :tag => "v#{s.version}" }
   s.ios.vendored_frameworks = "HeyCamera.framework"
   s.vendored_libraries = 'HeyCamera.framework/**/*.a'
 
