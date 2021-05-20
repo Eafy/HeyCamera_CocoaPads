@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HeyCamera"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "Hey Camera SDK for iOS at CocoaPods."
   s.description  = "Hey Camera SDK for iOS at CocoaPods."
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   
   s.libraries = 'c++','z','bz2','iconv'
   s.frameworks = 'CoreMedia','VideoToolbox','AudioToolbox', 'AVFoundation','OpenGLES','GLKit','CoreImage'
-  s.dependency 'ZJMediaPlayer', '~> 1.0.3'
+  s.dependency 'ZJMediaPlayer'
   s.dependency 'MJExtension'
   s.dependency 'AFNetworking'
   s.dependency 'Reachability'
