@@ -74,14 +74,37 @@ NS_ASSUME_NONNULL_BEGIN
 /// 关闭音频
 - (void)stopAudio;
 
-/// 视频是否开启或有效
+/// 视频是否开启
 - (BOOL)isValidVideo;
 
-/// 音频是否开启或有效
+/// 音频是否开启
 - (BOOL)isValidAudio;
 
-/// 对讲是否开启或有效
+/// 对讲是否开启
 - (BOOL)isValidTalk;
+
+/// 设置播放的缓存队列时间
+/// @param cacheTime 最小的缓存时间，默认1秒
+/// @param pursueTime 设置追赶时间，默认3秒
+- (void)setMediaCacheTime:(NSInteger)cacheTime pursueTime:(NSInteger)pursueTime;
+
+#pragma mark - 录制相关
+
+/// 截屏
+- (UIImage *_Nullable)snapshot;
+
+/// 开始录制视频
+/// @param filePath filePath 保存视频的沙盒路径，必须以.mp4为文件后缀
+- (void)startRecord:(NSString *_Nonnull)filePath;
+
+/// 停止视频录制(如视频中断，则会自动停止录像)
+- (void)stopRecord;
+
+/// 是否正在录制视频
+- (BOOL)isRecording;
+
+/// 获取正在录制视频的时长(毫秒)
+- (long)getRecordDuration;
 
 @end
 
