@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import "HHFrameInfo.h"
 #import "HHErrno.h"
+#import <ZJMediaPlayer/ZJMediaStreamPlayer.h>
 
 @class HHCamera;
 @class HHDeviceConnectInfo;
@@ -56,7 +57,15 @@ typedef NS_ENUM(NSUInteger, HHTalkStatus) {
 /// @param info 帧信息
 - (void)didReceiveFrameInfoWithCamera:(HHCamera * _Nullable)camera info:(HHFrameInfo * _Nullable)info;
 
+/// 搜索局域网的设备
+/// @param infoArray 设备信息
 - (void)didSearchDeviceWithInfo:(NSArray<HHDeviceConnectInfo *> * _Nullable)infoArray;
+
+/// 视频录制回调函数
+/// @param status 录制状态
+/// @param filePath 录制的实际路径
+/// @param errCode 错误码，0表示无错误
+- (void)didMediaPlayerRecord:(HHCamera *_Nonnull)camera status:(ZJ_MEDIA_RECORD_STATUS)status path:(NSString *_Nullable)filePath errCode:(NSInteger)errCode;
 
 @end
 

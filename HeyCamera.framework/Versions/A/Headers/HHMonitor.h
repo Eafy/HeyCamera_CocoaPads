@@ -5,11 +5,11 @@
 //  Created by eafy on 2020/9/19.
 //
 
-#import <ZJMediaPlayer/ZJMonitor.h>
+#import <ZJMediaPlayer/ZJGLMonitor.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HHMonitor : ZJMonitor
+@interface HHMonitor : ZJGLMonitor
 
 @end
 
