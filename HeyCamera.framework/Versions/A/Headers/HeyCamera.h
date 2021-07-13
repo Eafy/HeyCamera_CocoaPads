@@ -22,10 +22,20 @@ NS_ASSUME_NONNULL_BEGIN
 /// 释放SDK
 + (BOOL)deinitSDK;
 
-/// 创建绑定信息二维码
+/// 创建绑定信息二维码(WiFi信息+语言类型)
+/// @param ssid WiFi名称
+/// @param password WiFi密码
+/// @param language 语言类型，0：中文，1：英文
++ (UIImage * _Nullable)createBindQRCodeWithSSID:(NSString * _Nonnull)ssid password:(NSString * _Nonnull)password language:(NSInteger)language;
+
+/// 创建绑定信息二维码(WiFi信息)
 /// @param ssid WiFi名称
 /// @param password WiFi密码
 + (UIImage * _Nullable)createBindQRCodeWithSSID:(NSString * _Nonnull)ssid password:(NSString * _Nonnull)password;
+
+/// 创建语言类型二维码
+/// @param language 语言类型，0：中文，1：英文
++ (UIImage * _Nullable)createLanguageQRCode:(NSInteger)language;
 
 /// 开始监听绑定结果
 /// @param completion 完成回调
