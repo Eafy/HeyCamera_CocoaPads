@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, HHCmdSendResultType) {
 
 /// 命令发送的回调
 /// @param resultType 成功、失败或超时
-/// @param dataDic 回调的数据，可能为nil
+/// @param dataDic 回调的数据，可能为nil，可转模型：HHResultInfo或继承它更复杂的模型
 typedef void (^HHCmdRecvResultCB)(NSString *hid, HHCmdSendResultType resultType, NSDictionary *_Nullable dataDic);
 
 @interface HHCmdSendManager : NSObject
@@ -30,7 +30,7 @@ typedef void (^HHCmdRecvResultCB)(NSString *hid, HHCmdSendResultType resultType,
 /// 摄像头对象
 @property (nonatomic,strong) HHCamera *_Nullable camera;
 
-/// 超时时间（秒级），默认15.0
+/// 连接超时时间（秒级），默认15.0
 @property (nonatomic,assign) NSTimeInterval timeout;
 
 /// 设备通知已断开

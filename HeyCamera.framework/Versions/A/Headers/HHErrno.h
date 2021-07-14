@@ -8,49 +8,40 @@
 
 #import <Foundation/Foundation.h>
 
-#define HH_ERRNO_NONE 0     //成功，无错误
-#define HH_ERRNO_DEVICE_DISCONNECT  -1     //设备未连接
-
-#define HH_ERRNO_RUNNING   100     //异步操作时，返回该值代表已开始(如格式化SD 卡)
-#define HH_ERRNO_FILE_READ_END 200     //文件读取完毕时返回该值
-#define HH_ERRNO_NEXT_DATA 300      //请求队列中下一条数据时返回该值
-#define HH_ERRNO_OTA_DOWNLOAD 1000  //正在下载升级文件
-#define HH_ERRNO_OTA_VERIFY   1001  //下载成功，开始校验文件
-#define HH_ERRNO_OTA_UPGRADE  1002  //校验成功，开始升级
-#define HH_ERRNO_OTA_FINISH   1003  //升级成功
-#define HH_ERRNO_RUN_FAIL -100      //指令执行失败
-#define HH_ERRNO_PARAM_FAIL   -101  //参数无效，如参数范围不对
-#define HH_ERRNO_NON_SUPPORT  -102  //不支持该指令
-#define HH_ERRNO_UNINIT   -103      //功能未初始化
-#define HH_ERRNO_INIT_FAIL    -104  //功能初始化失败
-#define HH_ERRNO_NULL_FAIL    -105  //传入的参数为空
-#define HH_ERRNO_DATA_OVER    -106  //数据超过了最大大小
-#define HH_ERRNO_DATA_SIZEFAIL    -107  //数据大小与实际大小不一致
-#define HH_ERRNO_MEM_FAIL -108  //系统内存不足
-#define HH_ERRNO_NO_KEY   -109  //没有找到解析的字符，如传的KEY错误
-#define HH_ERRNO_KEY_PARAM_FAIL   -110  //字符对应的参数不正确
-#define HH_ERRNO_IS_RUNNING   -111  //调用的指令正在运行，则返回该值。
-#define HH_ERRNO_FILE_OPEN_FAIL   -200  //打开失败
-#define HH_ERRNO_FILE_READ_FAIL   -201  //读失败
-#define HH_ERRNO_FILE_WRITE_FAIL  -202  //写失败
-#define HH_ERRNO_FILE_NONEXIST    -203  //文件不存在
-#define HH_ERRNO_PATH_NONEXIST    -204  //路径不存在
-#define HH_ERRNO_DATA_FULL    -300  //数据已满
-#define HH_ERRNO_DATA_EMPTY   -301  //数据空
-#define HH_ERRNO_DATA_EXIST   -302  //数据已存在
-#define HH_ERRNO_CONNECT_FAIL -400   //连接失败
-#define HH_ERRNO_DISCONNECT -401    //断开连接
-#define HH_ERRNO_SEND_FAIL -402     //发送失败
-#define HH_ERRNO_RECV_OVERTIME    -403 //执行超时
-#define HH_ERRNO_DECODE_INIT_FAIL -500 //解码初始化失败
-#define HH_ERRNO_DECODE_FAIL  -501 //解码失败
-#define HH_ERRNO_ENCODE_INIT_FAIL -502 //编码初始化失败
-#define HH_ERRNO_ENCODE_FAIL  -503 //编码失败
-#define HH_ERRNO_RECORD_INIT_FAIL -504 //采集初始化失败
-#define HH_ERRNO_RECORD_FAIL  -505 //采集失败
-#define HH_ERRNO_OTA_OVERTIME    -1000 //下载失败，网络超时
-#define HH_ERRNO_OTA_FILE_NOEXIST    -1001 //下载失败，文件不存在
-#define HH_ERRNO_OTA_VERIFY_FAIL -1002 //校验失败
+typedef NS_ENUM(NSInteger, HH_ERRNO) {
+    HH_ERRNO_NoErr = 0,                     //成功，无错误
+    HH_ERRNO_NONE = HH_ERRNO_NoErr,
+    
+    HH_ERRNO_OTA_DOWNLOAD    =    100100,    //开始下载升级文件
+    HH_ERRNO_OTA_VERIFY    =    100101,    //下载成功，开始校验文件（暂未用到）
+    HH_ERRNO_OTA_UPGRADE    =    100102,    //校验成功，开始烧录分区（暂未用到）
+    HH_ERRNO_OTA_FINISH    =    100103,    //升级完成
+    HH_ERRNO_OTA_VERSION_IS_LATEST    =    100104,    //版本是最新的
+    HH_ERRNO_OTA_UPGRADING    =    100105,    //正在升级中
+    HH_ERRNO_OTA_START    =    100106,    //开始升级程序
+    
+    HH_ERRNO_CMD_PARAM_FAIL    =    -100000,    //参数无效，如参数范围不对
+    HH_ERRNO_CMD_NOT_SUPPORT    =    -100001,    //不支持该指令
+    HH_ERRNO_CMD_UNKNOWN_FAIL    =    -100002,    //未知错误（固件端分析）
+    HH_ERRNO_CMD_SEND_FORMAT_FAIL    =    -100003,    //发送指令格式错误（如APP和设备的版本差异大导致指令不匹配）
+    HH_ERRNO_CMD_RECV_FORMAT_FAIL    =    -100004,    //接收到的指令格式错误（如APP和设备的版本差异大导致指令不匹配）
+    HH_ERRNO_CMD_RUN_FAIL    =    -100005,    //指令执行失败（设备端分析原因）
+    HH_ERRNO_CMD_IS_RUNNING    =    -100006,    //指令正在执行
+    
+    HH_ERRNO_OTA_OVERTIME    =    -100100,    //下载失败，网络超时
+    HH_ERRNO_OTA_FILE_NOEXIST    =    -100101,    //下载失败，文件不存在
+    HH_ERRNO_OTA_VERIFY_FAIL    =    -100102,    //校验失败（暂未用到）
+    HH_ERRNO_OTA_MODEL_FAIL    =    -100103,    //设备型号错误/服务器不支持升级该设备
+    
+    HH_ERRNO_PLAYBACK_FINISH    =    100200,    //文件回放完毕
+    HH_ERRNO_PLAYBACK_FILE_NOT_EXIST    =    -100200,    //文件不存在
+    HH_ERRNO_PLAYBACK_FILE_READ_FAIL    =    -100201,    //文件读取失败
+    HH_ERRNO_PLAYBACK_FILE_LIST_EMPTY    =    -100202,    //文件列表为空
+    HH_ERRNO_PLAYBACK_MAX_PLAYBACK_NUM    =    -100203,    //已达到最大同时回放数量
+    
+    HH_ERRNO_PTZ_PRESET_FULL    =    -100300,    //云台预置位满
+    HH_ERRNO_PTZ_LIMIT    =    -100301,    //云台限位触发
+};
 
 NS_ASSUME_NONNULL_BEGIN
 

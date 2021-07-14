@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param password WiFi密码
 + (UIImage * _Nullable)createBindQRCodeWithSSID:(NSString * _Nonnull)ssid password:(NSString * _Nonnull)password;
 
-/// 创建语言类型二维码
+/// 创建更改语言类型二维码
 /// @param language 语言类型，0：中文，1：英文
 + (UIImage * _Nullable)createLanguageQRCode:(NSInteger)language;
 
