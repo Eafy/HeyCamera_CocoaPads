@@ -128,16 +128,18 @@ typedef NS_ENUM(NSUInteger, HH_AUDIOFMT_TYPE) {
 @property (nonatomic,assign) NSUInteger ver;
 /// 最新版本
 @property (nonatomic,assign) NSUInteger latestVer;
-/// 当前版本（自动转字符串）
-@property (nonatomic,copy) NSString *version;
-/// 当前版本（自动转字符串）
-@property (nonatomic,copy) NSString *latestVersion;
 /// 设备WiFi名称
 @property (nonatomic,copy) NSString *ssid;
 /// 设备IP
 @property (nonatomic,copy) NSString *ip;
 /// 在线人数
-@property (nonatomic,assign) NSUInteger online;
+@property (nonatomic,copy) NSString *online;
+
+/// 当前版本（自动转字符串）
+@property (nonatomic,copy) NSString *version;
+/// 当前版本（自动转字符串）
+@property (nonatomic,copy) NSString *latestVersion;
+
 @end
 
 #pragma mark -
