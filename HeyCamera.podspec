@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HeyCamera"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "Hey Camera SDK for iOS at CocoaPods."
   s.description  = "Hey Camera SDK for iOS at CocoaPods."
 
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking'
   s.dependency 'Reachability'
   s.dependency 'CocoaAsyncSocket'
-  s.dependency 'ZJBaseUtils', '~> 1.1.8'
+  s.dependency 'ZJBaseUtils', '~> 1.1.9'
   
   s.source       = { :git => "https://github.com/Eafy/HeyCamera_CocoaPads.git", :tag => "v#{s.version}" }
   s.ios.vendored_frameworks = "HeyCamera.framework"
