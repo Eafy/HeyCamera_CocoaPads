@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHFrameInfo : NSObject
 
+/// 视频宽度
+@property (nonatomic, assign) NSUInteger videoWidth;
+/// 视频高度
+@property (nonatomic, assign) NSUInteger videoHeight;
+
 /// 时间戳
 @property (nonatomic, assign) NSUInteger timestamp;
 
