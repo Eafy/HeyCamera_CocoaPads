@@ -17,7 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HeyCamera : NSObject
 
 /// 初始化SDK
-+ (BOOL)initSDK;
+/// @param key 授权Key
+/// @param secret 授权secret
++ (BOOL)initSDKWithKey:(NSString *)key secret:(NSString *)secret;
 
 /// 释放SDK
 + (BOOL)deinitSDK;
