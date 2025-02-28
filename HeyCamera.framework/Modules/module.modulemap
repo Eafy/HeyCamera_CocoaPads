@@ -1,6 +1,0 @@
-framework module HeyCamera {
-  umbrella header "HeyCamera.h"
-
-  export *
-  module * { export * }
-}
